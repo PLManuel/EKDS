@@ -1,12 +1,17 @@
-const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const sql = require('mssql');
-const bcrypt = require('bcrypt');
-const path = require('path');
-//const json = require('body-parser/lib/types/json'); no me acuerdo para que era esto
+import express from 'express';
+import session from 'express-session';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import sql from 'mssql';
+import bcrypt from 'bcrypt';
 
-require('dotenv').config();
+dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
 const port = process.env.PORT || 3000;
 

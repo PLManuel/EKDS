@@ -2,7 +2,7 @@
   "name": "ekds",
   "version": "1.0.0",
   "description": "Proyecto para el curso de Diseño de Productos y Servicios",
-  "type": "commonjs",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
