@@ -1,13 +1,14 @@
 {
   "name": "ekds",
   "version": "1.0.0",
+  "description": "Proyecto para el curso de Diseño de Productos y Servicios",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["express", "api", "frontend", "mssql", "proyecto", "backend"],
+  "author": "Equipo EKDS",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "6.0.0",
@@ -15,10 +16,8 @@
     "dotenv": "17.0.0",
     "express": "5.1.0",
     "express-session": "1.18.1",
-    "mssql": "11.0.1",
-    "mysql2": "3.14.1"
+    "mssql": "11.0.1"
   },
-  "description": "Proyecto para el curso de Diseño de Productos y Servicios",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PLManuel/EKDS.git"
