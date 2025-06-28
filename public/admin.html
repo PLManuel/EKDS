@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/perfil.js"></script>
+    <title>Panel de Administrador</title>
+</head>
+
+<body>
+    <section id="admin">
+        <div class="barraprincipal">
+            <a href="index.html"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_AA2LTQ7pejdaxe8kcYW4WwXkzXzzCKXBA&s"></a>
+            <div class="usuario" style="display: none;">
+                <a href="#" id="userDropdown"></a>
+                <div id="dropdownMenu" class="dropdown-menu" style="display: none">
+                    <a href="/logout">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="button-container">
+            <button id="btncrud"> CRUD </button>
+            <span class="separator">|</span>
+            <button id="btnstock"> Reabastecer Stock </button>
+            <span class="separator">|</span>
+            <button id="btnempleado"> Registrar Empleado </button>
+            <span class="separator">|</span>
+            <button id="btninventario"> Inventario </button>
+            <span class="separator">|</span>
+            <button id="btnkardex"> Kardex </button>
+        </div>
+    
+        <center>
+            <div class="main" id="crud">
+                <form id="crudForm" action="/crud" method="POST">
+                    <label for="chk" aria-hidden="true">Crud</label>
+                    <input type="text" name="nombre" placeholder="Nombre del producto" required>
+                    <input type="text" name="marca" placeholder="Marca del producto" required>
+                    <textarea name="descripcion" placeholder="Descripción" required></textarea>
+                    <input type="number" name="precioCompra" placeholder="Precio de compra" step="0.01" required>
+                    <input type="number" name="precioVenta" placeholder="Precio de venta" step="0.01" required>
+                    <input type="text" name="img" placeholder="Imagen" required>
+                    <select name="categoria" required>
+                        <option value="">--Selecciona una categoría--</option>
+                        <option value="Polos & Tops">Polos & Tops</option>
+                        <option value="Blusas & Camisas">Blusas & Camisas</option>
+                        <option value="Abrigos & Casacas">Abrigos & Casacas</option>
+                        <option value="Vestidos & Enterizos">Vestidos & Enterizos</option>
+                        <option value="Chompas & Poleras">Chompas & Poleras</option>
+                        <option value="Pantalones & Jeans">Pantalones & Jeans</option>
+                        <option value="Faldas & Shorts">Faldas & Shorts</option>
+                    </select>
+                    <select name="talla" required>
+                        <option value="">--Selecciona una talla--</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>                    </select>
+                    <button type="submit">Registrar Producto</button>
+                </form>
+            </div>
+    
+            <div class="main" id="reabastecer">
+                <div class="reabastecer-container">
+                    <h2>Reabastecer</h2>
+                    <form id="listaReabastecerForm" action="/reabastecer">
+                        <input type="text" name="proveedor" id="proveedorR" placeholder="Proveedor" required>
+                        <ul id="listaReabastecer">
+                        </ul>
+                        <button id="btn-reabastecer">Actualizar Inventario</button>
+                    </form>
+                    <button class="btn-add" id="btn-addReabastecer">Añadir Producto</button>
+                </div>
+                <div id="formularioR">
+                    <form id="reabastecerForm" action="/verificarR" method="POST">
+                        <label for="chk" aria-hidden="true">Reabastecer Inventario</label>
+                        <input type="text" name="nombre" placeholder="Nombre del producto" required>
+                        <input type="number" name="cantidad" placeholder="Cantidad" required>
+                        <button type="submit" id="addR">Añadir</button>
+                        <button id="btn-cancelReabastecer">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="main" id="empleado">
+                <form id="empleadoForm" action="/registerE" method="POST">
+                    <label for="chk" aria-hidden="true">Registrar Empleado</label>
+                    <input type="text" placeholder="Nombre de usuario" required name="username">
+                    <input type="text" placeholder="Nombre" required name="nombre">
+                    <input type="text" placeholder="Apellido" required name="apellido">
+                    <input type="email" placeholder="Correo electrónico" required name="email">
+                    <input type="text" placeholder="Dirección" required name="direccion">
+                    <input type="text" placeholder="Teléfono" required pattern="^\d{9}$" maxlength="9" name="telefono">
+                    <input type="text" placeholder="DNI" required pattern="^\d{8}$" maxlength="8" name="dni">
+                    <input type="password" placeholder="Contraseña" required name="password">
+                    <button type="submit" name="submit">Registrar</button>
+                </form>
+            </div>
+    
+            <div id="inventarioContainer" style="display: none;">
+                <h2>Inventario de Productos</h2>
+                <table id="tablaInventario">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Marca</th>
+                            <th>Precio</th>
+                            <th>Categoría</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se cargarán los productos dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+    
+    
+            <div class="main" id="kardex">
+                <form id="kardexForm">
+                    <label for="categoria">Selecciona una categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">--Selecciona una categoría--</option>
+                        <option value="Polos & Tops">Polos & Tops</option>
+                        <option value="Blusas & Camisas">Blusas & Camisas</option>
+                        <option value="Abrigos & Casacas">Abrigos & Casacas</option>
+                        <option value="Vestidos & Enterizos">Vestidos & Enterizos</option>
+                        <option value="Chompas & Poleras">Chompas & Poleras</option>
+                        <option value="Pantalones & Jeans">Pantalones & Jeans</option>
+                        <option value="Faldas & Shorts">Faldas & Shorts</option>
+                    </select>
+    
+                    <label for="fechaDesde">Fecha desde:</label>
+                    <input type="date" id="fechaDesde" name="fechaDesde">
+    
+                    <label for="fechaHasta">Fecha hasta:</label>
+                    <input type="date" id="fechaHasta" name="fechaHasta">
+    
+                    <button type="submit">Ver kardex</button>
+                </form>
+    
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Periodo</th>
+                            <th>Categoría</th>
+                            <th>Ropa</th>
+                            <th>Valor Unitario (Entrada)</th>
+                            <th>Valor Unitario (Salida)</th>
+                            <th>Entrada Cantidad</th>
+                            <th>Entrada Total</th>
+                            <th>Salida Cantidad</th>
+                            <th>Salida Total</th>
+                            <th>Saldo Cantidad</th>
+                            <th>Saldo Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Datos del kardex -->
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </section>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

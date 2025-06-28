@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/scriptFlexbox.js"></script>
+    <script src="../js/perfil.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="mensaje">
+        <div class="texto">
+            <div class="contenido">
+                <span>¡Gran Venta de Verano!</span>
+                <span>Descuentos Increíbles en Todo</span>
+                <span>Compra Uno y Llévate el Segundo a Mitad de Precio</span>
+                <span>¡No Te Lo Pierdas!</span>
+            </div>
+            <div class="contenido">
+                 <span>¡Gran Venta de Verano!</span>
+                <span>Descuentos Increíbles en Todo</span>
+                <span>Compra Uno y Llévate el Segundo a Mitad de Precio</span>
+                <span>¡No Te Lo Pierdas!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="barraprincipal">
+        <a href="../index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_AA2LTQ7pejdaxe8kcYW4WwXkzXzzCKXBA&s"></a>
+        <input type="text" placeholder="Buscar en la tienda..." class="search-input">
+        <button class="icon-button" id="user" onclick="location.href='../login.html'">
+            <i class="fa-solid fa-user" style="color: black;"></i>    
+        </button>
+        <div class="usuario" style="display: none;">
+            <a href="#" id="userDropdown"></a>
+            <div id="dropdownMenu" class="dropdown-menu" style="display: none">
+                <a href="../logout">Cerrar Sesión</a>
+            </div>
+        </div>
+        <div class="usuario">
+            <a href="../admin.html" id="crud"></a>
+        </div>
+        <button class="icon-button" id="cart" onclick="location.href='../carrito.html'">
+            <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
+        </button>
+    </div>
+
+
+    <div class="main-terminos">
+        <div class="acordeon">
+
+            <h3 class="acordeon-tittle">Términos y condiciones </h3>
+        
+            <hr>
+            <input type="checkbox" id="seccion1" class="acordeon-toggle">
+            <label for="seccion1" class="acordeon-item">  Aceptación de los Términos
+            </label>
+            <div class="acordeon-contenido">
+                <p>Al realizar una compra en nuestra librería o utilizar nuestro sitio web, aceptas estos términos y condiciones en su totalidad..</p>
+            </div>
+        
+            <input type="checkbox" id="seccion2" class="acordeon-toggle">
+            <label for="seccion2" class="acordeon-item">Disponibilidad de Productos</label>
+            <div class="acordeon-contenido">
+                <p>Todos los productos están sujetos a disponibilidad. En caso de falta de stock, notificaremos al cliente para ofrecer alternativas o realizar un reembolso.</p>
+            </div>
+        
+            <input type="checkbox" id="seccion3" class="acordeon-toggle">
+            <label for="seccion3" class="acordeon-item">Precios y Promociones</label>
+            <div class="acordeon-contenido">
+                <p>Los precios de los productos están expresados en soles peruanos (S/). Nos reservamos el derecho de modificar precios y promociones sin previo aviso.</p>
+            </div>
+        
+            <input type="checkbox" id="seccion4" class="acordeon-toggle">
+            <label for="seccion4" class="acordeon-item">Métodos de Pago</label>
+            <div class="acordeon-contenido">
+                <p>Aceptamos pagos en efectivo, tarjetas de crédito/débito, y transferencias bancarias. Todos los pagos deben completarse antes de la entrega del producto.</p>
+            </div>
+        
+            <input type="checkbox" id="seccion5" class="acordeon-toggle">
+            <label for="seccion5" class="acordeon-item">Recogida en Tienda</label>
+            <div class="acordeon-contenido">
+                <p>Todos los productos adquiridos a través de nuestra página web deben recogerse en la tienda ubicada en Av. Arenales 2128, Lince.</p>
+            </div>
+        
+            <input type="checkbox" id="seccion6" class="acordeon-toggle">
+            <label for="seccion6" class="acordeon-item">Plazo para Recoger Pedidos</label>
+            <div class="acordeon-contenido">
+                <p>Los pedidos deben ser recogidos dentro de los 7 días calendario posteriores a la confirmación de compra. Pasado este plazo, el pedido será cancelado y el monto pagado podrá ser reembolsado previa solicitud.</p>
+            </div>
+        
+            <input type="checkbox" id="seccion7" class="acordeon-toggle">
+            <label for="seccion7" class="acordeon-item">Devoluciones y Cambios</label>
+            <div class="acordeon-contenido">
+                <p>Se aceptan devoluciones dentro de los 7 días posteriores a la compra, siempre que el producto esté en su estado original, sin daños ni marcas. Los cambios están sujetos a disponibilidad del producto solicitado.</p>
+            </div>
+
+            <input type="checkbox" id="seccion8" class="acordeon-toggle">
+            <label for="seccion8" class="acordeon-item"> Productos Defectuosos o Incorrectos     </label>
+            <div class="acordeon-contenido">
+                <p>Se aceptan devoluciones dentro de los 7 días posteriores a la compra, siempre que el producto esté en su estado original, sin daños ni marcas. Los cambios están sujetos a disponibilidad del producto solicitado.</p>
+            </div>
+
+            <input type="checkbox" id="seccion9" class="acordeon-toggle">
+            <label for="seccion9" class="acordeon-item">Derechos de Autor</label>
+            <div class="acordeon-contenido">
+                <p>Todos los libros y contenidos están protegidos por derechos de autor. Cualquier uso no autorizado de estos materiales está estrictamente prohibido.</p>
+            </div>
+
+            <input type="checkbox" id="seccion10" class="acordeon-toggle">
+            <label for="seccion10" class="acordeon-item">Promociones Especiales</label>
+            <div class="acordeon-contenido">
+                <p>Las promociones y descuentos aplican solo durante las fechas indicadas y están sujetos a disponibilidad de productos.</p>
+            </div>
+
+            <input type="checkbox" id="seccion11" class="acordeon-toggle">
+            <label for="seccion11" class="acordeon-item">Garantía de Productos</label>
+            <div class="acordeon-contenido">
+                <p> Los productos no tienen garantía, excepto en caso de defectos de impresión claramente evidenciables.
+
+                </p>
+            </div>
+
+            <input type="checkbox" id="seccion12" class="acordeon-toggle">
+            <label for="seccion12" class="acordeon-item">Responsabilidad Limitada</label>
+            <div class="acordeon-contenido">
+                <p>La librería no se hace responsable por el uso que los clientes hagan de los libros adquiridos.</p>
+            </div>
+
+            <input type="checkbox" id="seccion13" class="acordeon-toggle">
+            <label for="seccion13" class="acordeon-item">Atención al Cliente </label>
+            <div class="acordeon-contenido">
+                <p> Para consultas, sugerencias o reclamos, puedes contactarnos a través de nuestro correo electrónico: contacto@librerialapopular.pe</p>
+            </div>
+
+            <input type="checkbox" id="seccion14" class="acordeon-toggle">
+            <label for="seccion14" class="acordeon-item">Protección de Datos </label>
+            <div class="acordeon-contenido">
+                <p>La información proporcionada por el cliente será utilizada exclusivamente para procesar pedidos y estará protegida conforme a nuestra Política de Privacidad.</p>
+            </div>
+
+            <input type="checkbox" id="seccion15" class="acordeon-toggle">
+            <label for="seccion15" class="acordeon-item">Cambios en los Términos y Condiciones</label>
+            <div class="acordeon-contenido">
+                <p> Nos reservamos el derecho de actualizar estos términos y condiciones en cualquier momento sin previo aviso.</p>
+            </div>
+
+            <input type="checkbox" id="seccion16" class="acordeon-toggle">
+            <label for="seccion16" class="acordeon-item">Ley Aplicable y Jurisdicción </label>
+            <div class="acordeon-contenido">
+                <p>Estos términos y condiciones se rigen por la legislación peruana y cualquier disputa será resuelta en los tribunales de Lima, Perú.</p>
+            </div>
+
+
+
+        </div>
+        <br>
+        <br>
+    </div>
+
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <h3>Síguenos</h3><br>
+                <a href="https://www.facebook.com/librerialapopular.pe/?locale=es_LA" target="_blank" class="social-link">
+                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                    <span> Facebook </span>
+                </a><br>
+                <a href="https://www.instagram.com/librerialapopular.pe/" target="_blank" class="social-link">
+                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                    <span> Instagram </span>
+                </a><br>
+                <a href="https://www.youtube.com" target="_blank" class="social-link">
+                    <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+                    <span> YouTube </span>
+                </a>
+            </div>
+            <div class="about-us">
+                <h3>Sobre Nosotros</h3>
+                <a href="somos.html">Quiénes somos</a>
+                <a href="politica.html">Política de privacidad</a>
+                <a href="terminos.html">Términos y condiciones</a>
+                <a href="preguntas.html">Preguntas frecuentes</a>
+            </div>
+            <div class="contact-info">
+                <h3>Contáctanos</h3><br>
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+                    <p>(01) 873264</p>
+                </div><br>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+                    <p> contacto@librerialapopular.pe </p>
+                </div>
+            </div>
+            
+            <div class="reclamaciones">
+                <h3>Libro de Reclamaciones</h3>
+                <div class="reclamaciones-content">
+                    <a href="" target="_blank" class="social-link">  
+                    </a>
+                    <i class="fa-solid fa-book" style="color: #ffffff;"></i>
+                    <a href="https://docs.google.com/forms/d/1Aau1nj3AiI7VgQikzMsTunfYJz2qpG2vNcOHrbWjdVs/prefill" target="_blank"> Libro de reclamaciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

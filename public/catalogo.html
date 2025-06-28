@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/scriptFlexbox.js"></script>
+    <script src="js/perfil.js"></script>
+    <title> El Kloset de Sole </title>
+</head>
+
+<body>
+    <div class="mensaje">
+        <div class="texto">
+            <div class="contenido">
+                <span>¡Gran Venta de Verano!</span>
+                <span>¡No Te Lo Pierdas!</span>
+            </div>
+            <div class="contenido">
+                <span>¡Gran Venta de Verano!</span>
+                <span>¡No Te Lo Pierdas!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="barraprincipal">
+        <a href="index.html"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_AA2LTQ7pejdaxe8kcYW4WwXkzXzzCKXBA&s"></a>
+        <input type="text" placeholder="Buscar en la tienda..." class="search-input" id="searchInput">
+        <button class="icon-button" id="user" onclick="location.href='login.html'">
+            <i class="fa-solid fa-user" style="color: black;"></i>
+        </button>
+        <div class="usuario" style="display: none;">
+            <a href="#" id="userDropdown"></a>
+            <div id="dropdownMenu" class="dropdown-menu" style="display: none">
+                <a href="/logout">Cerrar Sesión</a>
+            </div>
+        </div>
+        <div class="usuario">
+            <a href="admin.html" id="crud"></a>
+        </div>
+        <button class="icon-button" id="cart" onclick="location.href='carrito.html'">
+            <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
+        </button>
+    </div>
+
+    <div class="button-container">
+        <button id="polos & tops">Polos & Tops</button>
+        <span class="separator">|</span>
+        <button id="blusas & camisas">Blusas & Camisas</button>
+        <span class="separator">|</span>
+        <button id="abrigos & casacas">Abrigos & Casacas</button>
+        <span class="separator">|</span>
+        <button id="vestidos & enterizos">Vestidos & Enterizos</button>
+        <span class="separator">|</span>
+        <button id="chompas & poleras">Chompas & Poleras</button>
+        <span class="separator">|</span>
+        <button id="pantalones & jeans">Pantalones & Jeans</button>
+        <span class="separator">|</span>
+        <button id="faldas & shorts">Faldas & Shorts</button>
+    </div>
+
+    <div class="tienda-menu">
+        ☰
+    </div>
+
+    <div class="cuerpo">
+        <div class="section" id="section">
+            <div class="product-list">
+                <!-- Los productos se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <h3>Síguenos</h3><br>
+                <a href="https://www.facebook.com/librerialapopular.pe/?locale=es_LA" target="_blank"
+                    class="social-link">
+                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                    <span> Facebook </span>
+                </a><br>
+                <a href="https://www.instagram.com/librerialapopular.pe/" target="_blank" class="social-link">
+                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                    <span> Instagram </span>
+                </a><br>
+                <a href="https://www.youtube.com" target="_blank" class="social-link">
+                    <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+                    <span> YouTube </span>
+                </a>
+            </div>
+            <div class="about-us">
+                <h3>Sobre Nosotros</h3>
+                <a href="footer/somos.html">Quiénes somos</a>
+                <a href="footer/politica.html">Política de privacidad</a>
+                <a href="footer/terminos.html">Términos y condiciones</a>
+                <a href="footer/preguntas.html">Preguntas frecuentes</a>
+            </div>
+            <div class="contact-info">
+                <h3>Contáctanos</h3><br>
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+                    <p>(01) 873264</p>
+                </div><br>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+                    <p> contacto@librerialapopular.pe </p>
+                </div>
+            </div>
+
+            <div class="reclamaciones">
+                <h3>Libro de Reclamaciones</h3>
+                <div class="reclamaciones-content">
+                    <a href="" target="_blank" class="social-link">
+                    </a>
+                    <i class="fa-solid fa-book" style="color: #ffffff;"></i>
+                    <a href="https://docs.google.com/forms/d/1Aau1nj3AiI7VgQikzMsTunfYJz2qpG2vNcOHrbWjdVs/prefill"
+                        target="_blank"> Libro de reclamaciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/search.js"></script>  
+    <script src="js/getLibros.js"></script>
+</body>
+
+</html>

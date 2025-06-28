@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+.barraprincipal {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white;
+    padding: 20px; 
+}
+
+.barraprincipal img {
+    max-width: 100%;
+    width: 120px;
+    height: auto;
+}
+
+.usuario {
+    padding: 8px; 
+    margin-right: 10px;
+}
+
+#userDropdown, #crud {
+    text-decoration:none;
+    color: black;
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+.button-container, .button-container.active {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #9a2020;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.button-container button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid transparent;
+    background: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    outline: none;
+}
+
+.button-container button:hover {
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+}
+
+.main {
+    margin: 20px auto;
+    width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#formularioC, #formularioR {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea, select, button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #ad1111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ad1111e8;
+}
+
+#inventarioContainer {
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none; /* Mantiene oculto inicialmente */
+}
+
+#inventarioContainer h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #9a2020;
+}
+
+#tablaInventario {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaInventario th, #tablaInventario td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#tablaInventario th {
+    background-color: #9a2020;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tablaInventario tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#tablaInventario tr:hover {
+    background-color: #f1f1f1;
+}
+
+#tablaInventario td button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#tablaInventario .editar-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+#tablaInventario .editar-btn:hover {
+    background-color: #0056b3;
+}
+
+#tablaInventario .eliminar-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#tablaInventario .eliminar-btn:hover {
+    background-color: #a71d2a;
+}
+
+#tablaInventario .estado-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+}
+
+#tablaInventario .estado-btn[data-estado="habilitado"] {
+    background-color: #000000;
+}
+
+#tablaInventario .estado-btn:hover {
+    opacity: 0.9;
+}
+/* Estilos para el Kardex */
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px 15px;
+}
+
+th {
+    background-color: #9a2020; 
+    color: white; 
+    border-bottom: 2px solid #ddd; 
+}
+
+td {
+    background-color: #ede7e7; 
+    border-bottom: 1px solid #ddd; 
+}
+
+/* Ajusta el ancho de la primera columna */
+table th:nth-child(1), table td:nth-child(1) {
+    width: 150px;  /* Puedes aumentar más este valor si necesitas que sea más ancho */
+
+}

@@ -1,0 +1,30 @@
+{
+  "name": "ekds",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "6.0.0",
+    "body-parser": "2.2.0",
+    "dotenv": "17.0.0",
+    "express": "5.1.0",
+    "express-session": "1.18.1",
+    "mssql": "11.0.1",
+    "mysql2": "3.14.1"
+  },
+  "description": "Proyecto para el curso de Diseño de Productos y Servicios",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PLManuel/EKDS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PLManuel/EKDS/issues"
+  },
+  "homepage": "https://github.com/PLManuel/EKDS#readme"
+}

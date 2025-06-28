@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.principal {
+    display: flex;
+    justify-content: center;
+    font-size: 100%;
+    background-color: #9a2020;
+}
+.principal a {
+    text-decoration: none;
+    color: white;
+}
+.main{
+    width: 400px;
+    height: 650px;
+    background: black;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 20px 20px #000;
+    margin: 50px;
+}
+#chk{
+    display: none;
+}
+.signup{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.main label{
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin:60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.main input{
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.main button{
+    border: none;
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    background: #9a2020;
+    font-size: 1em;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+} 
+.main button:hover {
+    background-color: #660d0d;
+}
+.login{
+    height: 460px;
+    background: #eee;
+    border-radius: 60%/10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+.login label{
+    color: #9a2020;
+    transform: scale(.6);
+}
+#chk:checked ~ .login{
+    transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+    transform: scale(1);
+}
+#chk:checked ~ .signup label{
+    transform: scale(.6);
+}
+
