@@ -2,7 +2,7 @@
 async function cargarCarrito() {
     try {
         // verificar si el usuario está logueado
-        const perfilResponse = await fetch('/perfil');
+        const perfilResponse = await fetch('/api/auth/perfil');
         if (!perfilResponse.ok) {
             mostrarMensajeIniciarSesion();
             return;
@@ -55,7 +55,7 @@ function mostrarCarrito(carrito) {
 // función para eliminar un producto del carrito
 async function eliminarDelCarrito(detalleID) {
     try {
-        const response = await fetch(`/api/eliminar-carrito/${detalleID}`, { method: 'DELETE' });
+        const response = await fetch(`/api/carrito/eliminar/${detalleID}`, { method: 'DELETE' });
 
         if (response.ok) {
             alert('Producto eliminado del carrito');
@@ -117,7 +117,7 @@ async function finalizarCompra() {
 
 async function obtenerCarritoID() {
     try {
-        const response = await fetch('/api/carrito-usuario');
+        const response = await fetch('/api/carrito/carrito-usuario');
         if (response.ok) {
             const data = await response.json();
             return data.carritoID;

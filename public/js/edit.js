@@ -15,7 +15,7 @@ window.onload = async () => {
         document.getElementById('precioCompra').value = producto.PrecioCompra;
         document.getElementById('precio').value = producto.Precio;
         document.getElementById('stock').value = producto.Stock;
-        document.getElementById('img').value = producto.IMG;
+        document.getElementById('img').value = producto.Imagen;
         document.getElementById('categoria').value = producto.Categoria;
         document.getElementById('talla').value = producto.Talla;
     } catch (error) {

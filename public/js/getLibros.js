@@ -17,7 +17,7 @@ async function cargarProductos(categoria, searchQuery) {
     try {
         let url = `/api/productos/filtrar?categoria=${encodeURIComponent(categoria)}`;
         if (searchQuery) {
-            url = `/api/productos/buscar?search=${searchQuery}`;  // la búsqueda
+            url = `/api/productos/buscar?search=${searchQuery}`;
         }
         const response = await fetch(url);
         const productos = await response.json();
@@ -42,7 +42,7 @@ function mostrarProductos(productos) {
         productoItem.classList.add('product-item');
         productoItem.innerHTML = `
             <a href="libro.html?id=${producto.ID}">
-                <img src="img/${producto.IMG}" alt="${producto.Nombre}">
+                <img src="img/${producto.Imagen}" alt="${producto.Nombre}">
             </a>
             <p>${producto.Nombre}</p>
             <p>S/. ${producto.Nombre}</p>

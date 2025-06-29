@@ -16,7 +16,7 @@
         <div class="main">
             <input type="checkbox" id="chk" aria-hidden="false">
                 <div class="signup">
-                    <form id="registerForm" action="/register" method="POST">
+                    <form id="registerForm" action="/api/auth/register" method="POST">
                         <label for="chk" aria-hidden="true">Registrarte</label>
                         <input type="text" placeholder="Nombre de Usuario" required name="username">
                         <input type="text" placeholder="Nombre" required name="nombre">
@@ -27,7 +27,7 @@
                     </form>
                 </div>
                 <div class="login">
-                    <form id="loginForm" action="/login" method="POST"><br>
+                    <form id="loginForm" action="/api/auth/login" method="POST"><br>
                         <label for="chk" aria-hidden="true">Iniciar sesión</label>
                         <input type="text" placeholder="Nombre de usuario" required name="username">
                         <input type="password" placeholder="Contraseña" required name="password">

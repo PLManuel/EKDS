@@ -5,7 +5,7 @@ function getParametroURL(param) {
 
 async function cargarProducto(id) {
     try {
-        const response = await fetch(`/api/productos/${id}`); 
+        const response = await fetch(`/api/productos/${id}`);
         if (response.ok) {
             const producto = await response.json();
             mostrarProducto(producto);
@@ -19,7 +19,7 @@ async function cargarProducto(id) {
 
 
 function mostrarProducto(producto) {
-    document.getElementById('productImage').src = `img/${producto.IMG}`;
+    document.getElementById('productImage').src = `img/${producto.Imagen}`;
     document.getElementById('productName').textContent = producto.Nombre;
     document.getElementById('productBrand').innerHTML = `Marca: <strong>${producto.Marca}</strong>`;
     document.getElementById('productDescription').textContent = producto.Descripcion;
@@ -40,9 +40,13 @@ function mostrarProducto(producto) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const productoID = getParametroURL('id'); 
+    const productoID = getParametroURL('id');
+    if (!productoID || isNaN(productoID)) {
+        alert("ID de producto inválido");
+        return;
+    }
     if (productoID) {
-        cargarProducto(productoID); 
+        cargarProducto(productoID);
     } else {
         console.error('No se ha proporcionado un ID de producto en la URL');
     }
@@ -51,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 ///////////////////////////////////////////////////////////////////////////
 async function agregarAlCarrito(producto, cantidad) {
     try {
-        const responsePerfil = await fetch('/perfil');
+        const responsePerfil = await fetch('/api/auth/perfil');
         if (!responsePerfil.ok) {
             alert('No ha iniciado sesión');
             return;
-        } 
+        }
 
         const perfil = await responsePerfil.json();
         const usuarioID = perfil.id;

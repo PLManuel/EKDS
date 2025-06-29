@@ -2,7 +2,7 @@
 async function permitirAcceso() {
     try {
         // Verificar si el usuario está logueado
-        const perfilResponse = await fetch('/perfil');
+        const perfilResponse = await fetch('/api/auth/perfil');
         if (!perfilResponse.ok) {
             accesoDenegado();
             return;
@@ -102,7 +102,7 @@ const crud = document.getElementById('crudForm');
 crud.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/crud', {
+    const response = await fetch('/api/productos/crear', {
         method: 'POST',
         body: new URLSearchParams(new FormData(e.target)),
         headers: {
@@ -125,7 +125,7 @@ const empleado = document.getElementById('empleadoForm');
 empleado.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/registerE', {
+    const response = await fetch('/api/auth/registerAdmin', {
         method: 'POST',
         body: new URLSearchParams(new FormData(e.target)),
         headers: {
@@ -172,7 +172,7 @@ const proveedorInputR = document.getElementById('proveedorR');
 reabastecerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/verificarR', {
+    const response = await fetch('/api/productos/verificar', {
         method: 'POST',
         body: new URLSearchParams(new FormData(e.target)),
         headers: {
@@ -231,7 +231,7 @@ document.getElementById('listaReabastecerForm').addEventListener('submit', async
         return;
     }
 
-    const response = await fetch('/reabastecer', {
+    const response = await fetch('/api/productos/reabastecer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ proveedor, productos: compras })
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            let url = `/kardexCat?categoria=${categoria}`;
+            let url = `/api/reportes/kardex?categoria=${categoria}`;
 
             if (fechaDesde) {
                 url += `&fechaDesde=${fechaDesde}`;

@@ -17,7 +17,7 @@
             <div class="usuario" style="display: none;">
                 <a href="#" id="userDropdown"></a>
                 <div id="dropdownMenu" class="dropdown-menu" style="display: none">
-                    <a href="/logout">Cerrar Sesión</a>
+                    <a href="/api/auth/logout">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
     
         <center>
             <div class="main" id="crud">
-                <form id="crudForm" action="/crud" method="POST">
+                <form id="crudForm" action="/api/productos/crear" method="POST">
                     <label for="chk" aria-hidden="true">Crud</label>
                     <input type="text" name="nombre" placeholder="Nombre del producto" required>
                     <input type="text" name="marca" placeholder="Marca del producto" required>
@@ -69,7 +69,7 @@
             <div class="main" id="reabastecer">
                 <div class="reabastecer-container">
                     <h2>Reabastecer</h2>
-                    <form id="listaReabastecerForm" action="/reabastecer">
+                    <form id="listaReabastecerForm" action="/api/productos/reabastecer">
                         <input type="text" name="proveedor" id="proveedorR" placeholder="Proveedor" required>
                         <ul id="listaReabastecer">
                         </ul>
@@ -78,7 +78,7 @@
                     <button class="btn-add" id="btn-addReabastecer">Añadir Producto</button>
                 </div>
                 <div id="formularioR">
-                    <form id="reabastecerForm" action="/verificarR" method="POST">
+                    <form id="reabastecerForm" action="/api/productos/verificar" method="POST">
                         <label for="chk" aria-hidden="true">Reabastecer Inventario</label>
                         <input type="text" name="nombre" placeholder="Nombre del producto" required>
                         <input type="number" name="cantidad" placeholder="Cantidad" required>
@@ -89,7 +89,7 @@
             </div>
     
             <div class="main" id="empleado">
-                <form id="empleadoForm" action="/registerE" method="POST">
+                <form id="empleadoForm" action="/api/auth/registerAdmin" method="POST">
                     <label for="chk" aria-hidden="true">Registrar Empleado</label>
                     <input type="text" placeholder="Nombre de usuario" required name="username">
                     <input type="text" placeholder="Nombre" required name="nombre">

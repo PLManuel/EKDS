@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartIcon = document.getElementById('cart');
     const userName = document.querySelector('.usuario');
 
-    fetch('/perfil')
+    fetch('/api/auth/perfil')
         .then(response => response.json())
         .then(data => {
             if (data.username) {
