@@ -1,244 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <title>El Kloset de Sole - Moda Femenina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wood: "#D2B48C",
+              "wood-light": "#F5DEB3",
+              "wood-dark": "#A0826D",
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/inicio.js"></script>
+  </head>
+  <body class="bg-gray-50 min-h-[200vh]">
+    <app-navbar></app-navbar>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/scriptFlexbox.js"></script>
-    <script src="js/perfil.js"></script>
-    <title> El Kloset de Sole </title>
-</head>
+    <app-categories-list></app-categories-list>
+    <app-hero></app-hero>
 
-<body>
-    <div class="mensaje">
-        <div class="texto">
-            <div class="contenido">
-                <span>¡Gran Venta de Verano!</span>
-                <span>¡No Te Lo Pierdas!</span>
-            </div>
-            <div class="contenido">
-                <span>¡Gran Venta de Verano!</span>
-                <span>¡No Te Lo Pierdas!</span>
-            </div>
-        </div>
-    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+        Productos Destacados
+      </h2>
 
-    <div class="barraprincipal">
-        <a href="index.html"><img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_AA2LTQ7pejdaxe8kcYW4WwXkzXzzCKXBA&s"></a>
-        <input type="text" placeholder="Buscar en la tienda..." class="search-input" id="searchInput">
-        <button class="icon-button" id="user" onclick="location.href='login.html'">
-            <i class="fa-solid fa-user" style="color: black;"></i>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+        <product-card
+          title="Jeans Skinny"
+          description="Jeans de corte ajustado y cómodo"
+          price="42.00"
+          image="/img/imagen.jpg"
+        ></product-card>
+      </div>
+
+      <div class="text-center mt-12">
+        <button
+          class="bg-wood text-white px-8 py-3 rounded-full hover:bg-wood-dark transition-colors font-medium"
+        >
+          Ver Más Productos
         </button>
-        <div class="usuario" style="display: none;">
-            <a href="#" id="userDropdown"></a>
-            <div id="dropdownMenu" class="dropdown-menu" style="display: none">
-                <a href="/api/auth/logout">Cerrar Sesión</a>
-            </div>
-        </div>
-        <div class="usuario">
-            <a href="admin.html" id="crud"></a>
-        </div>
-        <button class="icon-button" id="cart" onclick="location.href='carrito.html'">
-            <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
-        </button>
-    </div>
-    <div class="button-container">
-        <button id="polos & tops">Polos & Tops</button>
-        <span class="separator">|</span>
-        <button id="blusas & camisas">Blusas & Camisas</button>
-        <span class="separator">|</span>
-        <button id="abrigos & casacas">Abrigos & Casacas</button>
-        <span class="separator">|</span>
-        <button id="vestidos & enterizos">Vestidos & Enterizos</button>
-        <span class="separator">|</span>
-        <button id="chompas & poleras">Chompas & Poleras</button>
-        <span class="separator">|</span>
-        <button id="pantalones & jeans">Pantalones & Jeans</button>
-        <span class="separator">|</span>
-        <button id="faldas & shorts">Faldas & Shorts</button>
+      </div>
     </div>
 
-    <div class="tienda-menu">
-        ☰
-    </div>
-
-    <div class="cuerpo">
-        <div class="carrusel">
-            <ul>
-                <li><img src="https://static.toiimg.com/thumb/msid-103379936,width-1280,height-720,resizemode-4/103379936.jpg"
-                        alt=""></li>
-                <li><img src="https://i.ytimg.com/vi/KiLCje1ggso/maxresdefault.jpg" alt=""></li>
-                <li><img src="https://images5.fanpop.com/image/photos/30500000/twilight-saga-twilight-series-30543454-1280-720.jpg"
-                        alt=""></li>
-                <li><img src="https://i.ytimg.com/vi/g2IgXNLaPMs/maxresdefault.jpg" alt=""></li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2> Novedades
-                <hr>
-            </h2>
-            <div class="product-list">
-                <div class="product-item">
-                    <img src="https://m.media-amazon.com/images/I/81-b-OYxoWL._SL1500_.jpg" alt="Libro 1">
-                    <p> Todos sabran mi nombre </p>
-                    <p>S/. 60.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLRpAOV5lN8GXNZjkdilZm5mUoq2umJAHjKA&s"
-                        alt="Libro 2">
-                    <p> Llamame por tu nombre </p>
-                    <p>S/. 80.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmk9kHhxtrPavRLjJrIGtGZkOVHnVQ8JATcQ&s"
-                        alt="Libro 3">
-                    <p> Homo irrealis </p>
-                    <p>S/. 70.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://wmagazin.com/wp-content/uploads/2019/12/Libroa%C3%B1o2019-Ensayo-Tiempodemagos-WMagazin-640x1024.jpg"
-                        alt="Libro 3">
-                    <p> Tiempo de Magos </p>
-                    <p>S/. 50.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://tunovela.es/wp-content/uploads/El-gran-viaje-de-Roberto-Ridder.jpg" alt="Libro 3">
-                    <p> El gran viaje </p>
-                    <p>S/. 60.00</p>
-                </div>
-            </div>
-
-            <h2>Los Más Vendidos
-                <hr>
-            </h2>
-            <div class="product-list">
-                <div class="product-item">
-                    <img src="https://assets.brightspot.abebooks.a2z.com/dims4/default/87de36e/2147483647/strip/true/crop/331x500+0+0/resize/350x529!/quality/90/?url=http%3A%2F%2Fabebooks-brightspot.s3.us-west-2.amazonaws.com%2F22%2F37%2Fc2a3c54748bbbcce83bb4cc191a4%2Fvargas.jpg"
-                        alt="Libro 1">
-                    <p> La guerra del fin del mundo </p>
-                    <p>S/. 50.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.poemas-del-alma.com/blog/wp-content/uploads/2018/08/novelas-hombres2-400x566.jpg"
-                        alt="Libro 2">
-                    <p> Don Quijote de la mancha </p>
-                    <p>S/. 60.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.infobae.com/new-resizer/pbo1gPCdGM87HPfSsmHxfRuLJKg=/992x1764/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2016/07/20201756/mejores-libros-La-Iliada-SF.jpg"
-                        alt="Libro 3">
-                    <p> La Iliada </p>
-                    <p>S/. 60.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.popularlibros.com/imagenes-webp-grandes/9788416/978841629971.webp"
-                        alt="Libro 3">
-                    <p> El peso del mundo </p>
-                    <p>S/. 70.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Ec8Jb0fTF4fNR8me5I-7igEp-PMXmBfVXEJBYhE-_YpxB9IjJaPS0ic1pet_3sb5qv0&usqp=CAU"
-                        alt="Libro 3">
-                    <p> El camino del despestar </p>
-                    <p>S/. 60.00</p>
-                </div>
-            </div>
-
-            <h2>Los Más Destacados
-                <hr>
-            </h2>
-            <div class="product-list">
-                <div class="product-item">
-                    <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/04/El-Principito.jpg"
-                        alt="Libro 1">
-                    <p> El-Principito</p>
-                    <p>S/. 80.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.libreriacodex.com/es/imagenes/9788417/978841797775.GIF" alt="Libro 2">
-                    <p> Lejos de egipto </p>
-                    <p>S/. 60.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/ad/0e/ad0eb256d3a9a36199a37c5abc197ba7.jpg"
-                        alt="Libro 3">
-                    <p> Entre fantasmas </p>
-                    <p>S/. 70.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-BDlOoKunrmeXw_DJ9FLKEX2IU7gjOSZpC_wWwVAfUUPqshsQuG-WG4tfWg0IqBzRkM&usqp=CAU"
-                        alt="Libro 3">
-                    <p> Destino </p>
-                    <p>S/. 70.00</p>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.revistadelibros.com/wp-content/uploads/2021/03/img_blog_1454.jpg"
-                        alt="Libro 3">
-                    <p> Brújula </p>
-                    <p>S/. 60.00</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <h3>Síguenos</h3><br>
-                <a href="https://www.facebook.com/librerialapopular.pe/?locale=es_LA" target="_blank"
-                    class="social-link">
-                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
-                    <span> Facebook </span>
-                </a><br>
-                <a href="https://www.instagram.com/librerialapopular.pe/" target="_blank" class="social-link">
-                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-                    <span> Instagram </span>
-                </a><br>
-                <a href="https://www.youtube.com" target="_blank" class="social-link">
-                    <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-                    <span> YouTube </span>
-                </a>
-            </div>
-            <div class="about-us">
-                <h3>Sobre Nosotros</h3>
-                <a href="footer/somos.html">Quiénes somos</a>
-                <a href="footer/politica.html">Política de privacidad</a>
-                <a href="footer/terminos.html">Términos y condiciones</a>
-                <a href="footer/preguntas.html">Preguntas frecuentes</a>
-            </div>
-            <div class="contact-info">
-                <h3>Contáctanos</h3><br>
-                <div class="contact-item">
-                    <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
-                    <p>(01) 873264</p>
-                </div><br>
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
-                    <p> contacto@librerialapopular.pe </p>
-                </div>
-            </div>
-
-            <div class="reclamaciones">
-                <h3>Libro de Reclamaciones</h3>
-                <div class="reclamaciones-content">
-                    <a href="" target="_blank" class="social-link">
-                    </a>
-                    <i class="fa-solid fa-book" style="color: #ffffff;"></i>
-                    <a href="https://docs.google.com/forms/d/1Aau1nj3AiI7VgQikzMsTunfYJz2qpG2vNcOHrbWjdVs/prefill"
-                        target="_blank"> Libro de reclamaciones</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/search.js"></script>  
-    <script src="js/getLibros.js"></script>
-</body>
-
+    <app-footer></app-footer>
+  </body>
 </html>
