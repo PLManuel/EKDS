@@ -5,9 +5,17 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": ["express", "api", "frontend", "mssql", "proyecto", "backend"],
+  "keywords": [
+    "express",
+    "api",
+    "frontend",
+    "mssql",
+    "proyecto",
+    "backend"
+  ],
   "author": "Equipo EKDS",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +25,11 @@
     "express": "5.1.0",
     "express-session": "1.18.1",
     "mssql": "11.0.1"
+  },
+  "devDependencies": {
+    "connect-livereload": "0.6.1",
+    "livereload": "0.9.3",
+    "nodemon": "3.1.10"
   },
   "repository": {
     "type": "git",
