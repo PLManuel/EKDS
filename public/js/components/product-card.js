@@ -1,6 +1,6 @@
 class ProductCard extends HTMLElement {
   static get observedAttributes() {
-    return ["title", "description", "price", "image"];
+    return ["title", "description", "price", "image", "id"];
   }
 
   constructor() {
@@ -29,11 +29,11 @@ class ProductCard extends HTMLElement {
   updateContent() {
     if (!this.isRendered) return;
 
-    const { title, description, price, image } = this.attributesData;
+    const { title, description, price, image, id } = this.attributesData;
 
     const imgEl = this.querySelector(".product-image");
     if (imgEl) {
-      imgEl.src = image || "/img/placeholder.jpg";
+      imgEl.src = image || "/img/imagen.jpg";
       imgEl.alt = title || "Imagen del producto";
     }
 
@@ -44,7 +44,12 @@ class ProductCard extends HTMLElement {
     if (descEl) descEl.textContent = description || "";
 
     const priceEl = this.querySelector(".product-price");
-    if (priceEl) priceEl.textContent = `$${parseFloat(price || 0).toFixed(2)}`;
+    if (priceEl) priceEl.textContent = `S/. ${parseFloat(price || 0).toFixed(2)}`;
+
+    const linkEl = this.querySelector("a");
+    if (linkEl && id) {
+      linkEl.href = `../producto.html?id=${id}`;
+    }
   }
 }
 

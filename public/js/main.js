@@ -90,7 +90,8 @@ function mostrarProductos(productos) {
     card.setAttribute("title", producto.Nombre);
     card.setAttribute("description", producto.Descripcion || "");
     card.setAttribute("price", producto.Precio || "0.00");
-    card.setAttribute("image", `/img/${producto.Imagen || "placeholder.jpg"}`);
+    card.setAttribute("image", `/img/${producto.Imagen || "imagen.jpg"}`);
+    card.setAttribute("id", producto.ID)
     productList.appendChild(card);
   });
 }

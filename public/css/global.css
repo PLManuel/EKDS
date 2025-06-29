@@ -49,3 +49,13 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(210, 180, 140, 0.3);
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}

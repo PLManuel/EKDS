@@ -1,93 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carro de compras</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="js/perfil.js"></script>  
-    <link rel="stylesheet" href="css/index.css">    
-    <link rel="stylesheet" href="css/carrito.css">
-</head>
-<body>
-    <div class="barraprincipal">
-        <div class="back">
-            <a href="index.html"><i class="bi bi-arrow-left-square-fill"></i> Volver</a>
-        </div>      
-        <a href="index.html"><img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_AA2LTQ7pejdaxe8kcYW4WwXkzXzzCKXBA&s"></a>
-        <input type="text" placeholder="Buscar en la tienda..." class="search-input" id="searchInput">
-        <button class="icon-button" id="user" onclick="location.href='login.html'">
-            <i class="fa-solid fa-user" style="color: black;"></i>
-        </button>
-        <div class="usuario" style="display: none;">
-            <a href="#" id="userDropdown"></a>
-            <div id="dropdownMenu" class="dropdown-menu" style="display: none">
-                <a href="/api/auth/logout">Cerrar Sesión</a>
-            </div>
-        </div>
-        <div class="usuario">
-            <a href="admin.html" id="crud"></a>
-        </div>
-        <button class="icon-button" id="cart" onclick="location.href='carrito.html'">
-            <i class="fa-solid fa-cart-shopping" style="color: black;"></i>
-        </button>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <title>El Kloset de Sole - Carrito de compras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wood: "#D2B48C",
+              "wood-light": "#F5DEB3",
+              "wood-dark": "#A0826D",
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/cart.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <app-navbar></app-navbar>
+    <div class="bg-wood-light md:py-4 py-3">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ul class="flex space-x-2">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-wood transition-colors">
+              <i class="fas fa-home"></i>
+            </a>
+          </li>
+          <li>
+            <i class="fas fa-chevron-right text-gray-600 text-sm"></i>
+          </li>
+          <li class="text-wood-dark font-medium">Carrito de compras</li>
+        </ul>
+      </div>
     </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">
+          Carrito de Compras
+        </h1>
+        <p class="text-gray-600">
+          Revisa tus productos antes de proceder al pago
+        </p>
+      </div>
 
-    <div class="container fluid et-3">
-        <br>
-        <h5><br>Carrito de compras</h5>
-        <hr>
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover text-center">
-                                <thead>
-                                    <th> Imagen </th>
-                                    <th> Producto </th>
-                                    <th> Precio (S/.) </th>
-                                    <th> Cantidad </th>
-                                    <th> Importe </th>
-                                    <th> Acción </th>
-                                </thead>
-                                <tbody id="cartTableBody">
-                                    <tr *ngIf="listCarro.length === 0">
-                                        <td colspan="6" class="text-center"> AÚN NO HAY PRODUCTOS EN TU CARRITO, ¡EXPLORA NUESTRA TIENDA!</td>
-                                    </tr>
-                                </tbody>                                
-                            </table>
-                        </div>
-                    </div>
-                </div>
+      <div
+        id="cart-no-sesion"
+        class="hidden bg-wood-dark rounded-full py-6 px-10 text-center mt-20 mb-16 mx-auto w-fit"
+      >
+        <h3 class="text-white font-semibold text-lg mb-4">
+          Debes tener una sesion iniciada antes de usar el carrito
+        </h3>
+        <a
+          href="../login.html"
+          class="bg-wood max-md:text-sm hover:bg-white/10 transition-colors text-white md:py-2 py-1.5 md:px-3 px-2 rounded-full block w-fit mx-auto border-2 border-wood"
+        >
+          Iniciar sesión
+        </a>
+      </div>
+
+      <div id="cart-content" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-wood-light px-6 py-4 border-b">
+              <h2 class="text-lg font-semibold text-gray-800">
+                <i class="fas fa-shopping-bag mr-2"></i>
+                Productos en tu carrito
+              </h2>
             </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <h5> Resumen de la orden</h5>
-                            <hr>
-                            <div class="d-flex justify-content-between ab-4">
-                                <p class="ab-2"> Total: </p>
-                                <p class="ab-2"> S/  </p>
-                            </div>
-                            <button id="comprarButton" type="button" class="btn btn-dark btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <span> Comprar </span>
-                                </div>
-                            </button>                            
-                        </div>
-                    </div>
-                </div>
+            <div class="overflow-x-auto">
+              <table class="w-full cart-table container">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Producto
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Cantidad
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Precio
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Importe
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Acción
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="cartTableBody"
+                  class="bg-white divide-y divide-gray-200"
+                ></tbody>
+              </table>
             </div>
+            <div
+              class="px-6 py-4 bg-gray-50 border-t flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0"
+            >
+              <a
+                href="./catalogo.html"
+                class="flex items-center text-wood hover:text-wood-dark transition-colors"
+              >
+                <i class="fas fa-arrow-left mr-2"></i>
+                Continuar Comprando
+              </a>
+              <button
+                class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                <i class="fas fa-trash mr-2"></i>
+                Vaciar Carrito
+              </button>
+            </div>
+          </div>
         </div>
+
+        <div class="lg:col-span-1">
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden sticky top-24 border"
+          >
+            <div class="summary-card px-6 py-4">
+              <h1 class="text-lg font-semibold text-wood-dark">
+                <i class="fas fa-receipt mr-2"></i>
+                Resumen de la Orden
+              </h1>
+            </div>
+            <div class="px-6 pb-4 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600"
+                  >Subtotal (<span id="cantidadTotal"></span> artículos)</span
+                >
+                <span class="font-semibold text-gray-900" id="subtotal"
+                  >S/.</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600">Envío</span>
+                <span class="text-green-600 font-medium">GRATIS</span>
+              </div>
+              <hr class="border-gray-200" />
+              <div class="flex justify-between items-center text-lg">
+                <span class="font-semibold text-gray-900">Total</span>
+                <span class="font-bold text-wood text-xl" id="total">S/.</span>
+              </div>
+              <button
+                class="w-full bg-wood text-white py-3 px-4 rounded-lg hover:bg-wood-dark focus:outline-none focus:ring-2 focus:ring-wood focus:ring-offset-2 transition-all duration-300 font-semibold mt-6"
+              >
+                <i class="fas fa-credit-card mr-2"></i>
+                Proceder al Pago
+              </button>
+              <div class="mt-4">
+                <p class="text-xs text-gray-500 text-center mb-3">
+                  Métodos de pago aceptados
+                </p>
+                <div class="flex justify-center space-x-3">
+                  <i class="fab fa-cc-visa text-2xl text-blue-600"></i>
+                  <i class="fab fa-cc-mastercard text-2xl text-red-500"></i>
+                  <i class="fab fa-cc-paypal text-2xl text-blue-500"></i>
+                  <i class="fas fa-university text-2xl text-gray-600"></i>
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <div class="inline-flex items-center text-xs text-gray-500">
+                  <i class="fas fa-shield-alt text-green-500 mr-1"></i>
+                  Compra 100% segura y protegida
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <script src="js/carrito.js"></script>
-    <script src="js/search.js"></script>  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+    <app-footer></app-footer>
+  </body>
 </html>

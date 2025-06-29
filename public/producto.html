@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <title>El Kloset de Sole - Producto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wood: "#D2B48C",
+              "wood-light": "#F5DEB3",
+              "wood-dark": "#A0826D",
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/product.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <app-navbar></app-navbar>
+    <div class="bg-wood-light md:py-4 py-3">
+      <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ul class="flex space-x-2">
+          <li>
+            <a href="/" class="text-gray-600 hover:text-wood transition-colors">
+              <i class="fas fa-home"></i>
+            </a>
+          </li>
+          <li>
+            <i class="fas fa-chevron-right text-gray-600 text-sm"></i>
+          </li>
+          <li>
+            <a
+              href="./catalogo.html"
+              class="text-gray-600 font-medium hover:text-wood transition-colors"
+              >Catalogo</a
+            >
+          </li>
+          <li>
+            <i class="fas fa-chevron-right text-gray-600 text-sm"></i>
+          </li>
+          <li class="text-wood-dark font-medium">Producto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <img
+          id="productImage"
+          src="/img/imagen.jpg"
+          alt="Blusa Elegante de Seda"
+          class="rounded-lg shadow-md w-full max-h-[32rem] object-cover"
+        />
+        <div class="space-y-3">
+          <div>
+            <p id="productBrand" class="text-wood font-semibold text-lg"></p>
+            <h1 id="productName" class="text-3xl font-bold text-gray-900"></h1>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <span id="productPrice" class="text-3xl font-bold text-wood"
+              >S/.</span
+            >
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Descripción
+            </h3>
+            <p
+              id="productDescription"
+              class="text-gray-600 leading-relaxed"
+            ></p>
+          </div>
+          <div class="flex items-center gap-4">
+            <h3 class="text-lg font-semibold text-gray-900">Talla:</h3>
+            <button
+              id="productSize"
+              class="size-option px-4 py-2 border border-gray-300 rounded-lg font-medium"
+            >
+              XS
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Cantidad</h3>
+              <div class="flex items-center space-x-3">
+                <div
+                  class="flex items-center border border-gray-300 rounded-lg"
+                >
+                  <button
+                    class="quantity-btn px-3 py-2 text-gray-600 hover:bg-wood hover:text-white transition-colors"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    class="w-16 text-center border-0 focus:outline-none focus:ring-0"
+                  />
+                  <button
+                    class="quantity-btn px-3 py-2 text-gray-600 hover:bg-wood hover:text-white transition-colors"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <span id="productStock" class="text-gray-600 text-sm"
+                  >Disponible: 15 unidades</span
+                >
+              </div>
+            </div>
+
+            <div class="flex space-x-4">
+              <button
+                id="btnAgregarCarrito"
+                class="flex-1 bg-wood text-white py-3 px-6 rounded-lg hover:bg-wood-dark focus:outline-none focus:ring-2 focus:ring-wood focus:ring-offset-2 transition-all duration-300 font-semibold hover:shadow-lg"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>Agregar al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </body>
+</html>
