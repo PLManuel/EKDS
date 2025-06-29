@@ -3,7 +3,7 @@ import "./components/footer.js";
 import "./components/product-card.js"
 import "./components/categories-list.js"
 
-document.addEventListener("navbar-ready", () => {
+document.addEventListener("navbar-ready", async () => {
   const searchInput = document.querySelector("app-navbar .search-input");
 
   if (searchInput) {
@@ -16,6 +16,31 @@ document.addEventListener("navbar-ready", () => {
       }
     });
   }
+
+  const userMenu = document.getElementById("userMenu");
+  const loginBtn = document.getElementById("loginBtn");
+  const usernameDisplay = document.getElementById("usernameDisplay");
+  const adminLink = document.getElementById("adminLink");
+
+  try {
+    const res = await fetch("/api/auth/perfil");
+
+    if (!res.ok) throw new Error("No autenticado");
+
+    const user = await res.json();
+
+    usernameDisplay.textContent = user.username;
+    usernameDisplay.classList.remove("hidden");
+
+    if (user.tipo_usuario !== "admin" && adminLink) {
+      adminLink.remove();
+    }
+
+    userMenu.classList.remove("hidden");
+  } catch (error) {
+    loginBtn.classList.remove("hidden");
+  }
+
 });
 
 document.addEventListener("categories-ready", () => {
