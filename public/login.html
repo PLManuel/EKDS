@@ -1,42 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/login.css">
-    <title>Login</title>
-</head>
-<body>
-    <div class="principal">
-        <a href="index.html"><h1>Bienvenidos a Librería El Popular</h1></a>
-    </div>    
-    <center>
-        <div class="main">
-            <input type="checkbox" id="chk" aria-hidden="false">
-                <div class="signup">
-                    <form id="registerForm" action="/api/auth/register" method="POST">
-                        <label for="chk" aria-hidden="true">Registrarte</label>
-                        <input type="text" placeholder="Nombre de Usuario" required name="username">
-                        <input type="text" placeholder="Nombre" required name="nombre">
-                        <input type="text" placeholder="Apellido" required name="apellido">
-                        <input type="email" placeholder="Correo electrónico" required name="email">
-                        <input type="password" placeholder="Contraseña" required name="password">
-                        <button type="submit" name="submit">Registrarte</button>
-                    </form>
-                </div>
-                <div class="login">
-                    <form id="loginForm" action="/api/auth/login" method="POST"><br>
-                        <label for="chk" aria-hidden="true">Iniciar sesión</label>
-                        <input type="text" placeholder="Nombre de usuario" required name="username">
-                        <input type="password" placeholder="Contraseña" required name="password">
-                        <button type="submit" name="submit">Iniciar sesión</button>
-                    </form>
-                </div>
-        </div>
-    </center>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <title>El Kloset de Sole - Moda Femenina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wood: "#D2B48C",
+              "wood-light": "#F5DEB3",
+              "wood-dark": "#A0826D",
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/login.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <app-navbar></app-navbar>
+    <app-categories-list></app-categories-list>
 
-    <script src="js/login.js"></script>
-</body>
+    <div class="max-w-md mx-auto w-full py-8 px-4">
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="flex" data-tab-container>
+          <button
+            data-tab="login"
+            class="flex-1 py-4 px-6 text-center font-semibold transition-all duration-300 tab-active"
+          >
+            Iniciar Sesión
+          </button>
+          <button
+            data-tab="register"
+            class="flex-1 py-4 px-6 text-center font-semibold transition-all duration-300 tab-inactive"
+          >
+            Registrarse
+          </button>
+        </div>
+        <div data-form="login" class="form-section active p-8">
+          <form data-form-login class="space-y-6">
+            <div>
+              <label
+                for="loginUsername"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                <i class="fas fa-user mr-2 text-wood"></i>Nombre de Usuario
+              </label>
+              <input
+                id="loginUsername"
+                required
+                name="username"
+                type="text"
+                class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent"
+                placeholder="Ingresa tu nombre de usuario"
+              />
+            </div>
+            <div>
+              <label
+                for="loginPassword"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                <i class="fas fa-lock mr-2 text-wood"></i>Contraseña
+              </label>
+              <div class="relative">
+                <input
+                  data-password
+                  name="password"
+                  type="password"
+                  required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent pr-12"
+                  placeholder="Ingresa tu contraseña"
+                />
+                <button
+                  type="button"
+                  class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  <i
+                    class="fas fa-eye text-gray-400 hover:text-wood transition-colors"
+                    data-password-icon
+                  ></i>
+                </button>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-wood text-white py-3 px-4 rounded-lg hover:bg-wood-dark focus:outline-none focus:ring-2 focus:ring-wood focus:ring-offset-2 transition-all duration-300 font-semibold hover:shadow-sm"
+            >
+              <i class="fas fa-sign-in-alt mr-2"></i>Iniciar Sesión
+            </button>
+          </form>
+        </div>
+        <div data-form="register" class="form-section p-8">
+          <form data-form-register class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="firstName"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  <i class="fas fa-user mr-2 text-wood"></i>Nombre
+                </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div>
+                <label
+                  for="lastName"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  <i class="fas fa-user mr-2 text-wood"></i>Apellido
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent"
+                  placeholder="Tu apellido"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="registerUsername"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                <i class="fas fa-at mr-2 text-wood"></i>Nombre de Usuario
+              </label>
+              <input
+                id="registerUsername"
+                name="username"
+                type="text"
+                required
+                class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent"
+                placeholder="Elige un nombre de usuario"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                <i class="fas fa-envelope mr-2 text-wood"></i>Correo Electrónico
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent"
+                placeholder="tu@email.com"
+              />
+            </div>
+            <div>
+              <label
+                for="registerPassword"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                <i class="fas fa-lock mr-2 text-wood"></i>Contraseña
+              </label>
+              <div class="relative">
+                <input
+                  data-password
+                  name="password"
+                  type="password"
+                  required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wood focus:border-transparent pr-12"
+                  placeholder="Crea una contraseña segura"
+                />
+                <button
+                  type="button"
+                  class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  <i
+                    class="fas fa-eye text-gray-400 hover:text-wood transition-colors"
+                    data-password-icon
+                  ></i>
+                </button>
+              </div>
+              <div class="mt-2">
+                <div class="text-xs text-gray-500">
+                  La contraseña debe tener al menos 8 caracteres
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-wood text-white py-3 px-4 rounded-lg hover:bg-wood-dark focus:outline-none focus:ring-2 focus:ring-wood focus:ring-offset-2 transition-all duration-300 font-semibold transform hover:shadow-md"
+            >
+              <i class="fas fa-user-plus mr-2"></i>Crear Cuenta
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </body>
 </html>

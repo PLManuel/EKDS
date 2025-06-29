@@ -1,17 +1,51 @@
 .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: #bfa58a transparent;
-  }
+  scrollbar-width: thin;
+  scrollbar-color: #bfa58a transparent;
+}
 
-  .scrollbar-thin::-webkit-scrollbar {
-    height: 6px;
-  }
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
 
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: #bfa58a;
-    border-radius: 10px;
-  }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #bfa58a;
+  border-radius: 10px;
+}
+
+.form-container {
+  background: linear-gradient(135deg, #f5deb3 0%, #d2b48c 100%);
+  min-height: 100vh;
+}
+
+.tab-active {
+  background-color: white;
+  color: #a0826d;
+  border-bottom: 3px solid #d2b48c;
+}
+
+.tab-inactive {
+  background-color: white;
+  color: rgba(128, 128, 128, 0.5);
+  border-bottom: 3px solid rgba(128, 128, 128, 0.5);
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+.input-field {
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(210, 180, 140, 0.3);
+}
