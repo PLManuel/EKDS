@@ -3,6 +3,8 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import path from 'path';
+import livereload from 'livereload';
+import connectLivereload from 'connect-livereload';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -17,6 +19,18 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.join(__dirname, 'public'));
+
+app.use(connectLivereload());
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({
