@@ -1,0 +1,35 @@
+<header
+  class="bg-white/70 backdrop-blur-md sticky top-0 shadow-md z-50 py-2 px-4"
+>
+  <div class="flex justify-between max-w-5xl gap-4 mx-auto items-center">
+    <a href="/"
+      class="md:w-18 w-16 bg-white border p-1.5 overflow-hidden rounded-full"
+    >
+      <img src="./img/favicon.png" alt="El Kloset de Sole" />
+    </a>
+    <div class="flex-1 max-w-lg relative">
+      <input
+        type="text"
+        placeholder="Buscar productos..."
+        class="search-input w-full pl-10 pr-4 md:py-2 py-1.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-wood max-md:placeholder:text-sm focus:border-transparent"
+      />
+      <div
+        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+      >
+        <i class="fas fa-search text-gray-400 max-md:text-sm"></i>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="text-gray-600 hover:text-wood transition-colors">
+        <i class="fas fa-user md:text-xl"></i>
+      </button>
+      <button class="text-gray-600 hover:text-wood transition-colors relative">
+        <i class="fas fa-shopping-cart md:text-xl"></i>
+        <span
+          class="absolute -top-2.5 -right-2.5 bg-wood text-white md:text-xs rounded-full md:size-5 size-4 flex items-center justify-center text-[.7rem]"
+          >3</span
+        >
+      </button>
+    </div>
+  </div>
+</header>
